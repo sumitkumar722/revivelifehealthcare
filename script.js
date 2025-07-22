@@ -42,3 +42,5 @@
         return false;
       }
     }
+  fetch("https://revivelife-backend.onrender.com/appointments", {
+  method: "POST",})
