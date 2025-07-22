@@ -64,18 +64,3 @@ function loginUser() {
     return false;
   }
 }
-async function loadAppointments() {
-  try {
-    const response = await fetch("https://revivelife-backend.onrender.com/appointments");
-    const data = await response.json();
-    const list = document.getElementById("appointment-list");
-    list.innerHTML = "";
-
-    data.forEach((appt, index) => {
-      list.innerHTML += <p>${index + 1}. ${appt.name} | ${appt.phone} | ${appt.department} | ${appt.date}</p>;
-    });
-  } catch (err) {
-    alert("Error loading appointments");
-    console.error(err);
-  }
-}
