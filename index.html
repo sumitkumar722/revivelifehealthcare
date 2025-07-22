@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ReviveLife Healthcare</title>
+  <!--Style.CSS-->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">ReviveLife Healthcare</div>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    <nav id="navbar">
+      <ul id="nav-menu">
+        <li><a href="#" onclick="showSection('hero')">Home</a></li>
+        <li><a href="#" onclick="showSection('about')">About</a></li>
+        <li><a href="#" onclick="showSection('services')">Services</a></li>
+        <li><a href="#" onclick="showSection('doctors')">Doctors</a></li>
+        <li><a href="#" onclick="showSection('appointment')">Appointment</a></li>
+        <li><a href="#" onclick="showSection('login')">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <img id="hero-slide" src="ReviveLife2.png" alt="Healthcare Banner" width="500">
+    <h1>Your Health, Our Priority</h1>
+    <p>Providing compassionate, expert care for you and your family</p>
+    <img src="ReviveLife.png" alt="Healthcare Banner" width="800">
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="hidden">
+    <h2>Welcome to ReviveLife Healthcare</h2>
+    <img src="ReviveLifePlace.png" alt="Healthcare Building" width="400">
+    <h3>Restoring Health, Reviving Hope</h3>
+    <p>
+      At ReviveLife Healthcare, we are committed to excellence in patient care. Our mission is to
+      restore health and provide hope through world-class medical services.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="hidden">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Emergency Care</li>
+      <li>ICU Ward</li>
+      <li>Pediatrics</li>
+      <li>General Medicine</li>
+    </ul>
+  </section>
+
+  <!-- Doctors Section -->
+  <section id="doctors" class="hidden">
+    <img src="doctorsReviveLife.png.jpg" alt="Doctors Group" width="300" >
+    <h2>Meet Our Doctors</h2>
+    <div class="doctor">
+      <img src="Sumit.png" alt="Dr. Sumit Soni" height="130" width="80">
+      <p><strong>Dr. Sumit Soni</strong><br>General Medicine</p>
+    </div>
+    <div class="doctor">
+      <img src="Rishu.png" alt="Dr. Rishu Srivastav" height="120" width="80">
+      <p><strong>Dr. Rishu Srivastav</strong><br>Pediatrician</p>
+    </div>
+  </section>
+
+  <!-- Appointment Section -->
+  <section id="appointment" class="hidden">
+    <h2>Book an Appointment</h2>
+    <form id="appointment-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="department">Department:</label>
+      <select id="department" name="department">
+        <option value="general">General Medicine</option>
+        <option value="pediatrics">Pediatrics</option>
+      </select>
+
+      <label for="date">Preferred Time/Date:</label>
+      <input type="datetime-local" id="date" name="date" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="payment-section" class="hidden">
+      <h3>Payment</h3>
+      <p>Consultation Fee: ₹500</p>
+      <button onclick="processPayment()">Pay ₹500</button>
+    </div>
+
+    <div id="success-message" class="success-message hidden">
+      Appointment submitted successfully!
+    </div>
+  </section>
+
+  <!-- Login Section -->
+  <section id="login" class="hidden">
+    <h2>Login</h2>
+    <form onsubmit="return loginUser()">
+      <label for="login-username">Username:</label>
+      <input type="text" id="login-username" required>
+
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <p id="login-message" style="color: green; text-align:center;"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="contact-info">
+      <p>Contact Us: (123) 456-7890 | Email: info@revivelifehealthcare.com</p>
+      <p>123 Health St, Wellness City</p>
+      <p>© Copyrights 2025 All rights reserved.</p>
+    </div>
+    <div class="social-media">
+      <a href="#">Facebook</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
