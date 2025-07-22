@@ -72,37 +72,31 @@
   </section>
 
   <!-- Appointment Section -->
-  <section id="appointment" class="hidden">
-    <h2>Book an Appointment</h2>
-    <form id="appointment-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+<section id="appointment" class="hidden">
+  <h2>Book an Appointment</h2>
+  <form id="appointment-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
 
-      <label for="department">Department:</label>
-      <select id="department" name="department">
-        <option value="general">General Medicine</option>
-        <option value="pediatrics">Pediatrics</option>
-      </select>
+    <label for="department">Department:</label>
+    <select id="department" name="department">
+      <option value="general">General Medicine</option>
+      <option value="pediatrics">Pediatrics</option>
+    </select>
 
-      <label for="date">Preferred Time/Date:</label>
-      <input type="datetime-local" id="date" name="date" required>
+    <label for="date">Preferred Time/Date:</label>
+    <input type="datetime-local" id="date" name="date" required>
 
-      <button type="submit">Submit</button>
-    </form>
+    <button type="submit">Submit</button>
+  </form>
 
-    <div id="payment-section" class="hidden">
-      <h3>Payment</h3>
-      <p>Consultation Fee: ₹500</p>
-      <button onclick="processPayment()">Pay Free 4 U</button>
-    </div>
-
-    <div id="success-message" class="success-message hidden">
-      Appointment submitted successfully!
-    </div>
-  </section>
+  <div id="success-message" class="success-message hidden">
+    Appointment submitted successfully!
+  </div>
+</section>
 
   <!-- Login Section -->
   <section id="login" class="hidden">
