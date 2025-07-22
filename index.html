@@ -100,7 +100,7 @@
 
   <!-- Login Section -->
   <section id="login" class="hidden">
-    <h2>Admin Login</h2>
+    <h2>Login</h2>
     <form onsubmit="return loginUser()">
       <label for="login-username">Username:</label>
       <input type="text" id="login-username" required>
@@ -108,10 +108,15 @@
       <label for="login-password">Password:</label>
       <input type="password" id="login-password" required>
 
-      <button type="submit">Login</button>
+      <button type="submit">Admin Login</button>
     </form>
     <p id="login-message" style="color: green; text-align:center;"></p>
   </section>
+
+  <section id="admin-dashboard" class="hidden" style="padding: 2rem;">
+  <h2>Appointment History</h2>
+  <div id="appointment-list"></div>
+</section>
 
   <!-- Footer -->
   <footer>
