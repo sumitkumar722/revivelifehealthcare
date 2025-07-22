@@ -41,7 +41,7 @@ document.getElementById("appointment-form").addEventListener("submit", async fun
 
     if (response.ok) {
       document.getElementById("appointment-form").classList.add("hidden");
-      document.getElementById("payment-section").classList.remove("hidden");
+      document.getElementById("success-message").classList.remove("hidden");
     } else {
       alert("Server error: " + result);
     }
@@ -51,18 +51,12 @@ document.getElementById("appointment-form").addEventListener("submit", async fun
   }
 });
 
-//  SIMULATED PAYMENT
-function processPayment() {
-  alert("Payment of ₹500 successful!");
-  document.getElementById("payment-section").classList.add("hidden");
-  document.getElementById("success-message").classList.remove("hidden");
-}
-
 //  LOGIN SYSTEM
 function loginUser() {
   const user = document.getElementById("login-username").value;
   const pass = document.getElementById("login-password").value;
-  if (user === "admin" && pass === "admin123") {
+
+  if (user === "Seth_sumitsoni" && pass === "@31January") {
     document.getElementById("login-message").innerText = "Login successful!";
     return false;
   } else {
