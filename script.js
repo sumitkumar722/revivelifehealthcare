@@ -1,46 +1,72 @@
-  function showSection(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
-      document.getElementById(id).classList.remove("hidden");
-      // Close menu on selection (mobile)
-      document.getElementById("nav-menu").classList.remove("show");
-    }
+function showSection(id) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  document.getElementById("nav-menu").classList.remove("show"); // For mobile
+}
 
-    function toggleMenu() {
-      document.getElementById("nav-menu").classList.toggle("show");
-    }
+function toggleMenu() {
+  document.getElementById("nav-menu").classList.toggle("show");
+}
 
-    const slideImages = ["ReviveLife2.png", "doctorsReviveLife.png.jpg"];
-    let currentSlide = 0;
+const slideImages = ["ReviveLife2.png", "doctorsReviveLife.png.jpg"];
+let currentSlide = 0;
 
-    function showNextSlide() {
-      currentSlide = (currentSlide + 1) % slideImages.length;
-      document.getElementById("hero-slide").src = slideImages[currentSlide];
-    }
+function showNextSlide() {
+  currentSlide = (currentSlide + 1) % slideImages.length;
+  document.getElementById("hero-slide").src = slideImages[currentSlide];
+}
+setInterval(showNextSlide, 3000);
 
-    setInterval(showNextSlide, 3000);
+// FORM SUBMIT HANDLER
+document.getElementById("appointment-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    document.getElementById("appointment-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      document.getElementById("appointment-form").classList.add("hidden");
-      document.getElementById("payment-section").classList.remove("hidden");
+  const appointment = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    department: document.getElementById("department").value,
+    date: document.getElementById("date").value
+  };
+
+  try {
+    const response = await fetch("https://revivelife-backend.onrender.com/appointments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(appointment)
     });
 
-    function processPayment() {
-      alert("Payment of ₹500 successful!");
-      document.getElementById("payment-section").classList.add("hidden");
-      document.getElementById("success-message").classList.remove("hidden");
-    }
+    const result = await response.text();
 
-    function loginUser() {
-      const user = document.getElementById("login-username").value;
-      const pass = document.getElementById("login-password").value;
-      if (user === "admin" && pass === "admin123") {
-        document.getElementById("login-message").innerText = "Login successful!";
-        return false;
-      } else {
-        alert("Invalid credentials");
-        return false;
-      }
+    if (response.ok) {
+      document.getElementById("appointment-form").classList.add("hidden");
+      document.getElementById("payment-section").classList.remove("hidden");
+    } else {
+      alert("Server error: " + result);
     }
-  fetch("https://revivelife-backend.onrender.com/appointments", {
-  method: "POST",})
+  } catch (err) {
+    alert("Network error! Try again later.");
+    console.error(err);
+  }
+});
+
+//  SIMULATED PAYMENT
+function processPayment() {
+  alert("Payment of ₹500 successful!");
+  document.getElementById("payment-section").classList.add("hidden");
+  document.getElementById("success-message").classList.remove("hidden");
+}
+
+//  LOGIN SYSTEM
+function loginUser() {
+  const user = document.getElementById("login-username").value;
+  const pass = document.getElementById("login-password").value;
+  if (user === "admin" && pass === "admin123") {
+    document.getElementById("login-message").innerText = "Login successful!";
+    return false;
+  } else {
+    alert("Invalid credentials");
+    return false;
+  }
+}
