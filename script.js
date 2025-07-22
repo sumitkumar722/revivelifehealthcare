@@ -58,6 +58,13 @@ function loginUser() {
 
   if (user === "Seth_sumitsoni" && pass === "@31January") {
     document.getElementById("login-message").innerText = "Login successful!";
+    
+    //show admin dashboard
+    showSection("admin-dashboard");
+
+    //load appointments from backend
+    loadAppointments();
+    
     return false;
   } else {
     alert("Invalid credentials");
